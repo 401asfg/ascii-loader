@@ -1,7 +1,7 @@
 import unittest
-from ascii_map_loader.exceptions.double_spawned_entity_error import DoubleSpawnedEntityError
-from ascii_map_loader.room import Room
-from ascii_map_loader.entity import Entity
+from ascii_loader.exceptions.double_spawned_entity_error import DoubleSpawnedEntityError
+from ascii_loader.room import Room
+from ascii_loader.entity import Entity
 
 class TestRoom(unittest.TestCase):
     X_A = 0

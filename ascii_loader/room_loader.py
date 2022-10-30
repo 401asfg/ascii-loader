@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from ascii_map_loader.room import Room
+from ascii_loader.room import Room
 
 
 # TODO: test

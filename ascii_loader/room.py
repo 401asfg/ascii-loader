@@ -1,6 +1,6 @@
 from typing import List
-from ascii_map_loader.entity import Entity
-from ascii_map_loader.exceptions.double_spawned_entity_error import DoubleSpawnedEntityError
+from ascii_loader.entity import Entity
+from ascii_loader.exceptions.double_spawned_entity_error import DoubleSpawnedEntityError
 
 
 class Room:

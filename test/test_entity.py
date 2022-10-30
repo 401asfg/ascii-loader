@@ -1,5 +1,5 @@
 import unittest
-from ascii_map_loader.entity import Entity
+from ascii_loader.entity import Entity
 
 class TestEntity(unittest.TestCase):
     def test_init(self):
