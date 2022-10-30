@@ -11,11 +11,11 @@ class RoomLoader:
     Loads rooms from .txt files
     """
 
-    def __init__(self, dir: Path):
+    def __init__(self, loading_directory: Path):
         """
         Initializes the class
 
-        :param dir: The path to the directory that holds the .txt files to load rooms from
+        :param loading_directory: The path to the directory that holds the .txt files to load rooms from
         """
         pass
 
@@ -28,4 +28,8 @@ class RoomLoader:
 
         :raise FileNotFoundError: If there is no file with the given file_name
         """
+        return None
+
+    @property
+    def loading_directory(self) -> Path:
         return None
