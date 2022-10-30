@@ -1,0 +1,28 @@
+{
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "node_modules/": true,
+        "**/*.meta": true,
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true,
+        "test/__pycache__": true,
+        "ascii_loader/exceptions/__pycache__": true,
+        "ascii_loader/__pycache__": true,
+        ".gitignore": true,
+        ".vscode": true
+    },
+    "hide-files.files": [
+        "test/__pycache__",
+        "ascii_loader/exceptions/__pycache__",
+        "ascii_loader/__pycache__",
+        ".gitignore",
+        ".vscode"
+    ]
+}
