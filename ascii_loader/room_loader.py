@@ -3,7 +3,7 @@ from pathlib import Path
 from ascii_loader.room import Room
 
 
-# TODO: test
+# TODO: implement and test
 
 
 class RoomLoader:

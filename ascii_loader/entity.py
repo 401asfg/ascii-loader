@@ -1,4 +1,7 @@
-class Entity:
+from abc import ABC
+
+
+class Entity(ABC):
     """
     An object that can be added to a map
     """

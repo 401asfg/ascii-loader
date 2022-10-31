@@ -3,6 +3,9 @@ from ascii_loader.entity import Entity
 from ascii_loader.exceptions.double_spawned_entity_error import DoubleSpawnedEntityError
 
 
+# TODO: add and test get method
+
+
 class Room:
     """
     A 2D space that contains entities
