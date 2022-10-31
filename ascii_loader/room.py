@@ -3,9 +3,6 @@ from ascii_loader.entity import Entity
 from ascii_loader.exceptions.double_spawned_entity_error import DoubleSpawnedEntityError
 
 
-# TODO: add and test get method
-
-
 class Room:
     """
     A 2D space that contains entities
@@ -31,6 +28,15 @@ class Room:
                                            was already contained in the room")
 
         self._entities.append(entity)
+
+    def get(self, index: int) -> Entity:        # TODO: test
+        """
+        :param index: The index of the entity to get
+        :return: The entity at the given index in the room
+
+        :raise IndexError: If the given index is less than 0, or greater than or equal to num_entities()
+        """
+        return None     # TODO: implement
 
     def num_entities(self) -> int:
         """
