@@ -1,5 +1,5 @@
 import unittest
-from ascii_loader.exceptions.double_spawned_entity_error import DoubleSpawnedEntityError
+from ascii_loader.exceptions.entity_multi_spawn_error import EntityMultiSpawnError
 from ascii_loader.room import Room
 from ascii_loader.entity import Entity
 
@@ -60,7 +60,7 @@ class TestRoom(unittest.TestCase):
             try:
                 self.room.spawn(entity)
                 self.fail()
-            except DoubleSpawnedEntityError:
+            except EntityMultiSpawnError:
                 self.assertEqual(num_entities, self.room.num_entities())
                 self.assertEqual(contains_a, self.room.contains(self.entity_a))
                 self.assertEqual(contains_b, self.room.contains(self.entity_b))
@@ -164,3 +164,135 @@ class TestRoom(unittest.TestCase):
                     True,
                     True,
                     True)
+
+    def test_despawn(self):
+        def assert_despawn(entity: Entity,
+                           num_entities: int,
+                           contains_a: bool,
+                           contains_b: bool,
+                           contains_c: bool,
+                           contains_d: bool):
+            self.room.despawn(entity)
+            self.assertEqual(num_entities, self.room.num_entities())
+            self.assertEqual(contains_a, self.room.contains(self.entity_a))
+            self.assertEqual(contains_b, self.room.contains(self.entity_b))
+            self.assertEqual(contains_c, self.room.contains(self.entity_c))
+            self.assertEqual(contains_d, self.room.contains(self.entity_d))
+
+        def assert_fail(entity: Entity,
+                        num_entities: int,
+                        contains_a: bool,
+                        contains_b: bool,
+                        contains_c: bool,
+                        contains_d: bool):
+            try:
+                self.room.despawn(entity)
+                self.fail()
+            except ValueError:
+                self.assertEqual(num_entities, self.room.num_entities())
+                self.assertEqual(contains_a, self.room.contains(self.entity_a))
+                self.assertEqual(contains_b, self.room.contains(self.entity_b))
+                self.assertEqual(contains_c, self.room.contains(self.entity_c))
+                self.assertEqual(contains_d, self.room.contains(self.entity_d))
+
+        self.room.spawn(self.entity_a)
+        assert_despawn(self.entity_a,
+                            0,
+                            False,
+                            False,
+                            False,
+                            False)
+
+        self.room.spawn(self.entity_b)
+        self.room.spawn(self.entity_c)
+        assert_despawn(self.entity_b,
+                            1,
+                            False,
+                            False,
+                            True,
+                            False)
+
+        self.room.spawn(self.entity_a)
+        self.room.spawn(self.entity_b)
+        self.room.spawn(self.entity_d)
+        assert_despawn(self.entity_a,
+                            3,
+                            False,
+                            True,
+                            True,
+                            True)
+
+        assert_despawn(self.entity_c,
+                            2,
+                            False,
+                            True,
+                            False,
+                            True)
+
+        assert_despawn(self.entity_b,
+                            1,
+                            False,
+                            False,
+                            False,
+                            True)
+
+        assert_despawn(self.entity_d,
+                            0,
+                            False,
+                            False,
+                            False,
+                            False)
+
+    def test_get(self):
+        def assert_get(expected_entity: Entity, index: int):
+            self.assertEqual(expected_entity, self.room.get(index))
+
+        def assert_fail(lowest_fail_index: int):
+            def fail(index):
+                try:
+                    self.room.get(index)
+                    self.fail()
+                except ValueError:
+                    pass
+            fail(81)
+            fail(11)
+            fail(7)
+            fail(6)
+            fail(5)
+            fail(4)
+            
+            for i in range(lowest_fail_index, 4):
+                fail(i)
+
+            fail(-1)
+            fail(-2)
+            fail(-17)
+            fail(-23)
+
+        assert_fail(0)
+
+        self.room.spawn(self.entity_b)
+        assert_get(self.entity_b, 0)
+        assert_fail(1)
+
+        self.room.despawn(self.entity_b)
+        assert_fail(0)
+
+        self.room.spawn(self.entity_c)
+        self.room.spawn(self.entity_d)
+        assert_get(self.entity_d, 1)
+        assert_get(self.entity_c, 0)
+        assert_fail(2)
+
+        self.room.despawn(self.entity_c)
+        assert_get(self.entity_d, 0)
+        assert_fail(1)
+
+        self.room.spawn(self.entity_a)
+        self.room.spawn(self.entity_b)
+        self.room.spawn(self.entity_c)
+        assert_get(self.entity_d, 0)
+        assert_get(self.entity_a, 1)
+        assert_get(self.entity_b, 2)
+        assert_get(self.entity_c, 3)
+        assert_fail(4)
