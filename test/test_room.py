@@ -296,3 +296,30 @@ class TestRoom(unittest.TestCase):
         assert_get(self.entity_b, 2)
         assert_get(self.entity_c, 3)
         assert_fail(4)
+
+        self.room.despawn(self.entity_b)
+        assert_get(self.entity_d, 0)
+        assert_get(self.entity_a, 1)
+        assert_get(self.entity_c, 2)
+        assert_fail(3)
+
+        self.room.despawn(self.entity_d)
+        assert_get(self.entity_a, 0)
+        assert_get(self.entity_c, 1)
+        assert_fail(2)
+
+        self.room.despawn(self.entity_a)
+        assert_get(self.entity_c, 0)
+        assert_fail(1)
+
+        self.room.spawn(self.entity_a)
+        assert_get(self.entity_a, 1)
+        assert_get(self.entity_c, 0)
+        assert_fail(2)
+
+        self.room.despawn(self.entity_c)
+        assert_get(self.entity_a, 0)
+        assert_fail(1)
+
+        self.room.despawn(self.entity_a)
+        assert_fail(0)
