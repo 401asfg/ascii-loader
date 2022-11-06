@@ -4,6 +4,8 @@ from ascii_loader.room import Room
 
 
 # TODO: implement and test
+# TODO: add spritemap_file param
+# TODO: make a function?
 
 
 class RoomLoader:
@@ -11,11 +13,11 @@ class RoomLoader:
     Loads rooms from .txt files
     """
 
-    def __init__(self, loading_directory: Path):
+    def __init__(self, loading_dir: Path):
         """
         Initializes the class
 
-        :param loading_directory: The path to the directory that holds the .txt files to load rooms from
+        :param loading_dir: The path to the directory that holds the .txt files to load rooms from
         """
         pass
 
@@ -31,5 +33,5 @@ class RoomLoader:
         return None
 
     @property
-    def loading_directory(self) -> Path:
+    def loading_dir(self) -> Path:
         return None

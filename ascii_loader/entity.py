@@ -1,7 +1,7 @@
-from abc import ABC
+# TODO: should this be abstract?
 
 
-class Entity(ABC):
+class Entity:
     """
     An object that can be added to a map
     """
