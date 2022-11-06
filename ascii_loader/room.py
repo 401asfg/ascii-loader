@@ -1,6 +1,6 @@
 from typing import List
 from ascii_loader.entity import Entity
-from ascii_loader.exceptions.entity_multi_spawn_error import EntityMultiSpawnError
+from ascii_loader.exceptions.duplicate_entity_error import DuplicateEntityError
 
 
 class Room:
@@ -21,10 +21,10 @@ class Room:
         Spawns the given entity in the room
         
         :param entity: The entity to spawn
-        :raise EntityMultiSpawnError: If the given entity is already contained within the room
+        :raise DuplicateEntityError: If the given entity is already contained within the room
         """
         if self.contains(entity):
-            raise EntityMultiSpawnError("Attempted to spawn the same instance of an entity while it \
+            raise DuplicateEntityError("Attempted to spawn the same instance of an entity while it \
                                            was already contained in the room")
 
         self._entities.append(entity)

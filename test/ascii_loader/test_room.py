@@ -1,5 +1,5 @@
 import unittest
-from ascii_loader.exceptions.entity_multi_spawn_error import EntityMultiSpawnError
+from ascii_loader.exceptions.duplicate_entity_error import DuplicateEntityError
 from ascii_loader.room import Room
 from ascii_loader.entity import Entity
 
@@ -60,7 +60,7 @@ class TestRoom(unittest.TestCase):
             try:
                 self.room.spawn(entity)
                 self.fail()
-            except EntityMultiSpawnError:
+            except DuplicateEntityError:
                 self.assertEqual(num_entities, self.room.num_entities())
                 self.assertEqual(contains_a, self.room.contains(self.entity_a))
                 self.assertEqual(contains_b, self.room.contains(self.entity_b))
