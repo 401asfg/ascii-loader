@@ -3,7 +3,7 @@
 
 class Entity:
     """
-    An object that can be added to a map
+    An object that is loaded from a map
     """
 
     _x: int
