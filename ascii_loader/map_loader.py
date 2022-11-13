@@ -5,8 +5,6 @@ from ascii_loader.entity import Entity
 from ascii_loader.exceptions.map_file_not_found_error import MapFileNotFoundError
 from ascii_loader.utils import is_file_type
 
-# TODO: test
-
 
 T = TypeVar("T", bound=Entity)
 
