@@ -1,4 +1,5 @@
 # TODO: should this be abstract?
+# TODO: should this have an x and y constraint
 
 
 class Entity:
