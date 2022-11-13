@@ -469,7 +469,7 @@ class TestMapLoader(unittest.TestCase):
             'O': EntityK
         })
 
-    def test_load_map_no_file_invalid(self):
+    def test_load_map_no_file_invalid_with_extension(self):
         map_file = self.MAP_DIR / "no_file.xml"
 
         def assert_map_file_not_found_error(char_to_entity_type: Dict[str, Type[Entity]]):
