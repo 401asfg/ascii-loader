@@ -14,15 +14,7 @@ class TestEntity(unittest.TestCase):
         assert_init(593, 6)
         assert_init(11, 3)
         assert_init(787, 787)
-
-        def assert_fail(x, y):
-            try:
-                Entity(x, y)
-                self.fail()
-            except ValueError:
-                pass
-
-        assert_fail(-1, 0)
-        assert_fail(0, -1)
-        assert_fail(-1, -1)
-        assert_fail(-34, -9)
+        assert_init(-1, 0)
+        assert_init(0, -1)
+        assert_init(-1, -1)
+        assert_init(-34, -9)

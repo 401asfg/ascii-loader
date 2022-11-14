@@ -38,25 +38,25 @@ class TestEntityKeyLoader(unittest.TestCase):
         except AttributeError:
             pass
 
-    def test_load_entity_key_valid(self):
-        # TODO: write
+    # def test_load_entity_key_valid(self):
+    #     # TODO: write
 
-    def test_load_entity_key_invalid(self):
-        # TODO: write
+    # def test_load_entity_key_invalid(self):
+    #     # TODO: write
 
-    def test_load_entity_key_other_types(self):
-        # TODO: write
+    # def test_load_entity_key_other_types(self):
+    #     # TODO: write
 
-    def test_load_entity_key_invalid_empty(self):
-        # TODO: write
+    # def test_load_entity_key_invalid_empty(self):
+    #     # TODO: write
 
-    def test_load_entity_key_no_file_valid(self):
-        # TODO: write
+    # def test_load_entity_key_no_file_valid(self):
+    #     # TODO: write
 
-    def test_load_entity_key_no_file_invalid_no_extension(self):
-        # TODO: write
+    # def test_load_entity_key_no_file_invalid_no_extension(self):
+    #     # TODO: write
 
-    def test_load_entity_key_no_file_invalid_with_extension(self):
-        # TODO: write
+    # def test_load_entity_key_no_file_invalid_with_extension(self):
+    #     # TODO: write
 
     # TODO: write tests based on test map loader's layout

@@ -1,5 +1,4 @@
 # TODO: should this be abstract?
-# TODO: should this have an x and y constraint
 
 
 class Entity:
@@ -16,12 +15,7 @@ class Entity:
 
         :param x: The entity's x position in a map
         :param y: The entity's y position in a map
-
-        :raise ValueError: If the x or y are less than 0
         """
-        if x < 0 or y < 0:
-            raise ValueError("Tried to create an entity with negative coordinates")
-
         self._x = x
         self._y = y
 
