@@ -1,3 +1,5 @@
 from ascii_loader.entity import Entity
 from ascii_loader.entity_key_loader import load_entity_key
 from ascii_loader.map_loader import load_map
+from ascii_loader.exceptions.entity_key_file_not_found_error import EntityKeyFileNotFoundError
+from ascii_loader.exceptions.map_file_not_found_error import MapFileNotFoundError
