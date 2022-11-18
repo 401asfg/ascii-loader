@@ -3,8 +3,7 @@ from typing import Dict, Tuple, Type
 import unittest
 
 from ascii_loader.entity import Entity
-from ascii_loader.exceptions.map_file_not_found_error import MapFileNotFoundError
-from ascii_loader.map_loader import load_map
+from ascii_loader.map_loader import load_map, MapFileNotFoundError
 
 
 class EntityA(Entity):

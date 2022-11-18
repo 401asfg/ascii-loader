@@ -4,7 +4,6 @@ from typing import Dict, List, Tuple, Type, TypeVar
 from xml.dom.minidom import Entity
 from importlib import import_module
 
-from ascii_loader.exceptions.entity_key_file_not_found_error import EntityKeyFileNotFoundError
 from ascii_loader.utils import is_file_type
 
 # TODO: implement and test
@@ -17,6 +16,12 @@ ENTITY_KEY_FILE_SUFFIX = ".json"
 ENTITY_KEY_CHARACTER_KEY = "character"
 ENTITY_KEY_MODULE_NAME_KEY = "module_name"
 ENTITY_KEY_CLASS_NAME_KEY = "class_name"
+
+
+class EntityKeyFileNotFoundError(Exception):
+    """
+    Raised when a valid entity key file could not be found at the end of a path
+    """
 
 
 def load_entity_key(entity_key_file: Path) -> Dict[str, Type[T]]:

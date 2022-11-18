@@ -3,8 +3,7 @@ from typing import Dict, Type
 import unittest
 
 from ascii_loader.entity import Entity
-from ascii_loader.entity_key_loader import load_entity_key
-from ascii_loader.exceptions.entity_key_file_not_found_error import EntityKeyFileNotFoundError
+from ascii_loader.entity_key_loader import load_entity_key, EntityKeyFileNotFoundError
 
 
 class TestEntityKeyLoader(unittest.TestCase):

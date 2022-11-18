@@ -2,13 +2,18 @@ from pathlib import Path
 from typing import Dict, List, Tuple, Type, TypeVar
 
 from ascii_loader.entity import Entity
-from ascii_loader.exceptions.map_file_not_found_error import MapFileNotFoundError
 from ascii_loader.utils import is_file_type
 
 
 T = TypeVar("T", bound=Entity)
 
 MAP_FILE_SUFFIX = ".txt"
+
+
+class MapFileNotFoundError(Exception):
+    """
+    Raised when a valid map file could not be found at the end of a path
+    """
 
 
 def load_map(map_file: Path,
