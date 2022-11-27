@@ -1,6 +1,3 @@
-# TODO: should this be abstract?
-
-
 class Entity:
     """
     An object that is loaded from a map

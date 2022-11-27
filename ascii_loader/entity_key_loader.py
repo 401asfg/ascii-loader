@@ -6,9 +6,6 @@ from importlib import import_module
 
 from ascii_loader.utils import is_file_type
 
-# TODO: implement and test
-
-
 T = TypeVar("T", bound=Entity)
 
 ENTITY_KEY_FILE_SUFFIX = ".json"
@@ -28,25 +25,23 @@ def load_entity_key(entity_key_file: Path) -> Dict[str, Type[T]]:
     """
     Load an entity key from the given entity_key_file
 
-    :param file: The file to load the entity key from
+    :param entity_key_file: The file to load the entity key from
     :return: The ascii characters paired with their entity types, described by the given entity_key_file
     
     :raise EntityKeyFileNotFoundError: If the given entity_key_file path doesn't lead to a file with a 
     suffix matching ENTITY_KEY_FILE_SUFFIX
-    :raise KeyError: If the an entry in the file at the given entity_key_file path doesn't contain the 
+    :raise KeyError: If an entry in the file at the given entity_key_file path doesn't contain the
     ENTITY_KEY_CHARACTER_KEY, ENTITY_KEY_MODULE_NAME_KEY, or ENTITY_KEY_CLASS_NAME_KEY
     :raise ImportError: If one of the entries in the given entity_key_file doesn't have a valid value 
-    in it's ENTITY_KEY_MODULE_NAME_KEY field
+    in its ENTITY_KEY_MODULE_NAME_KEY field
     :raise AttributeError: If one of the entries in the given entity_key_file doesn't have a valid value 
-    in it's ENTITY_KEY_CLASS_NAME_KEY field
+    in its ENTITY_KEY_CLASS_NAME_KEY field
     """
     if not is_file_type(entity_key_file, ENTITY_KEY_FILE_SUFFIX):
         raise EntityKeyFileNotFoundError(
             f"No valid file found while attempting to load a {ENTITY_KEY_FILE_SUFFIX} entity key file")
 
     def read_entity_key() -> List[Dict[str, str]]:
-        file_contents: List[Dict[str, str]] = []
-
         with open(entity_key_file, 'r') as f:
             file_contents = json.load(f)
 
