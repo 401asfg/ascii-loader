@@ -22,21 +22,19 @@ def load_map(map_file: Path,
     """
     Load a map from the given file using the given char_to_entity_type
 
-    :param file: The file to load the ascii map from
+    :param map_file: The file to load the ascii map from
     :param char_to_entity_type: A key describing what type of entity each character from the given map_file represents
     :param empty_space_char: A character that is used only to space out the map and won't be loaded as an entity
     :return: The entities that were described by the given map_file and the given char_to_entity_type
 
-    :raise MapFileNotFoundError: If the given map_file path doesn't lead to a file with a suffix matching MAP_FILE_SUFFIX
-    :raise KeyError: If given map_file contains a character that isn't also a key in the given char_to_entity_type 
-    dictionary
+    :raise MapFileNotFoundError: If the given map_file path doesn't lead to a file with a suffix matching
+    MAP_FILE_SUFFIX :raise KeyError: If given map_file contains a character that isn't also a key in the given
+    char_to_entity_type dictionary
     """
     if not is_file_type(map_file, MAP_FILE_SUFFIX):
         raise MapFileNotFoundError(f"No valid file found while attempting to load a {MAP_FILE_SUFFIX} map file")
 
     def read_map() -> List[str]:
-        file_contents = ""
-
         with open(map_file, 'r') as f:
             file_contents = f.read().splitlines()
 
