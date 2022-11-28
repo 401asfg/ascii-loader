@@ -1,4 +1,7 @@
-class Entity:
+from abc import ABC
+
+
+class Entity(ABC):
     """
     An object that is loaded from a map
     """
