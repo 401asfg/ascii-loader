@@ -4,54 +4,18 @@ import unittest
 
 from ascii_loader.entity import Entity
 from ascii_loader.map_loader import load_map, MapFileNotFoundError
-
-
-class EntityA(Entity):
-    pass
-
-
-class EntityB(Entity):
-    pass
-
-
-class EntityC(Entity):
-    pass
-
-
-class EntityD(Entity):
-    pass
-
-
-class EntityE(Entity):
-    pass
-
-
-class EntityF(Entity):
-    pass
-
-
-class EntityG(Entity):
-    pass
-
-
-class EntityH(Entity):
-    pass
-
-
-class EntityI(Entity):
-    pass
-
-
-class EntityJ(Entity):
-    pass
-
-
-class EntityK(Entity):
-    pass
-
-
-class EntityX(Entity):
-    pass
+from test.test_entities.entity_a import EntityA
+from test.test_entities.entity_b import EntityB
+from test.test_entities.entity_c import EntityC
+from test.test_entities.entity_d import EntityD
+from test.test_entities.entity_e import EntityE
+from test.test_entities.entity_f import EntityF
+from test.test_entities.entity_g import EntityG
+from test.test_entities.entity_h import EntityH
+from test.test_entities.entity_i import EntityI
+from test.test_entities.entity_j import EntityJ
+from test.test_entities.entity_k import EntityK
+from test.test_entities.entity_x import EntityX
 
 
 class TestMapLoader(unittest.TestCase):
